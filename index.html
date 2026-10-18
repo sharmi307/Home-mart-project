@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeMart | Furniture & Decor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="#" class="logo">🏡 HomeMart</a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="cart-button" onclick="toggleCart()">
+    🛒 Cart (<span id="cart-count">0</span>)
+  </button>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="eyebrow">MAKE YOUR HOUSE A HOME</p>
+    <h1>Comfort Meets<br><span>Beautiful Design</span></h1>
+    <p>Discover furniture and decor that make every corner special.</p>
+    <a href="#products" class="btn">Shop Collection →</a>
+  </div>
+</section>
+
+<section class="categories">
+  <h2>Shop by Category</h2>
+  <div class="category-list">
+    <button class="category active" onclick="filterProducts('All', this)">All</button>
+    <button class="category" onclick="filterProducts('Living Room', this)">Living Room</button>
+    <button class="category" onclick="filterProducts('Bedroom', this)">Bedroom</button>
+    <button class="category" onclick="filterProducts('Dining', this)">Dining</button>
+    <button class="category" onclick="filterProducts('Office', this)">Office</button>
+    <button class="category" onclick="filterProducts('Decor', this)">Decor</button>
+  </div>
+</section>
+
+<section class="products-section" id="products">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">OUR COLLECTION</p>
+      <h2>Furniture You'll Love</h2>
+    </div>
+    <input id="search" type="search"
+      placeholder="Search furniture..."
+      oninput="searchProducts()">
+  </div>
+
+  <div id="product-list" class="product-grid"></div>
+</section>
+
+<section class="promo">
+  <div>
+    <p class="eyebrow">A LITTLE SOMETHING FOR YOUR HOME</p>
+    <h2>Good Design. Great Living.</h2>
+    <p>Thoughtful furniture for everyday moments.</p>
+  </div>
+  <a href="#products" class="btn">Explore Now</a>
+</section>
+
+<section id="about" class="info-section">
+  <p class="eyebrow">OUR STORY</p>
+  <h2>About HomeMart</h2>
+  <p>HomeMart brings furniture and home decor together in one place.
+    Our goal is to help everyone create a comfortable, stylish and
+    welcoming home with beautiful designs for every space.</p>
+</section>
+
+<section id="contact" class="info-section contact">
+  <p class="eyebrow">WE'RE HERE TO HELP</p>
+  <h2>Contact Us</h2>
+  <p>Email: support@homemart.example</p>
+  <p>Have a question? Send us a message.</p>
+  <form onsubmit="sendMessage(event)">
+    <input id="contact-name" placeholder="Your name" required>
+    <input id="contact-email" type="email" placeholder="Your email" required>
+    <textarea id="contact-message" placeholder="Your message" required></textarea>
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+</section>
+
+<aside id="cart-panel" class="cart-panel">
+  <div class="cart-heading">
+    <h2>Your Shopping Cart</h2>
+    <button onclick="toggleCart()" aria-label="Close cart">✕</button>
+  </div>
+  <div id="cart-items"></div>
+  <h3>Total: <span id="cart-total">₹0</span></h3>
+  <button class="btn checkout-button" onclick="showCheckout()">
+    Proceed to Checkout
+  </button>
+</aside>
+
+<section id="checkout" class="checkout-section">
+  <h2>Checkout</h2>
+  <form id="checkout-form" onsubmit="placeOrder(event)">
+    <input id="customer-name" placeholder="Full name" required>
+    <input id="customer-email" type="email" placeholder="Email address" required>
+    <textarea id="customer-address" placeholder="Delivery address" required></textarea>
+    <select id="payment" required>
+      <option value="">Select payment method</option>
+      <option value="Cash on Delivery">Cash on Delivery (demo)</option>
+      <option value="Online Payment">Online Payment (demo only)</option>
+    </select>
+    <div id="checkout-summary"></div>
+    <button class="btn" type="submit">Place Demo Order</button>
+  </form>
+  <p class="note">Demo checkout only. No real payment is processed.</p>
+</section>
+
+<footer>
+  <a href="#home" class="logo">🏡 HomeMart</a>
+  <p>Furniture that makes you feel at home.</p>
+  <p>© 2026 HomeMart. Internship project.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
